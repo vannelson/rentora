@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Head -10 2>$null)",
+      "PowerShell(Get-Item \"$env:TEMP\\\\cmdlinetools.zip\" -ErrorAction SilentlyContinue | Select-Object Name, Length, LastWriteTime)",
+      "Bash(yes)",
+      "Bash(echo \"Installing platform-tools and Android 35...\")",
+      "Bash(/c/Users/april/AppData/Local/Android/Sdk/cmdline-tools/latest/bin/sdkmanager.bat --sdk_root=/c/Users/april/AppData/Local/Android/Sdk platform-tools 'platforms;android-35' 'build-tools;35.0.0')",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(echo \"Installing emulator system image...\")",
+      "Bash(/c/Users/april/AppData/Local/Android/Sdk/cmdline-tools/latest/bin/sdkmanager.bat --sdk_root=/c/Users/april/AppData/Local/Android/Sdk emulator 'system-images;android-35;google_apis;x86_64')",
+      "PowerShell($imgPath = \"C:\\\\Users\\\\april\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\system-images\\\\android-35\\\\google_apis\\\\x86_64\"; \\(Get-ChildItem $imgPath -Recurse | Measure-Object\\).Count; Get-ChildItem $imgPath | Select-Object Name)",
+      "Bash(echo \"=== Available AVDs ===\")",
+      "Bash(/c/Users/april/AppData/Local/Android/Sdk/cmdline-tools/latest/bin/avdmanager.bat list *)",
+      "Bash(echo \"\")",
+      "Bash(echo \"=== ADB version ===\")",
+      "Bash(/c/Users/april/AppData/Local/Android/Sdk/platform-tools/adb.exe version *)",
+      "WebSearch"
+    ]
+  }
+}
